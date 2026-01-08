@@ -1,7 +1,10 @@
+using myfinance_web_dotnet_infra;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<MyFinanceDbContext>();
 
 var app = builder.Build();
 
