@@ -1,6 +1,6 @@
+using myfinance_web_dotnet_domain;       
+using myfinance_web_dotnet_infra;        
 using myfinance_web_dotnet_service.Interfaces;
-using myfinance_web_dotnet_domain.Entities;
-using myfinance_web_dotnet_infra.Data;
 
 namespace myfinance_web_dotnet_service
 {
