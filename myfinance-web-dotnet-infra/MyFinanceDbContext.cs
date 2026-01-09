@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using myfinance_web_dotnet_domain.Entities;
+using myfinance_web_dotnet_domain;
 
 namespace myfinance_web_dotnet_infra;
 
@@ -12,6 +12,6 @@ public class MyFinanceDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=myfinance;Trusted_Connection=True;");
+        optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=myfinance;Trusted_Connection=True;TrustServerCertificate=True;");
     }
 }
