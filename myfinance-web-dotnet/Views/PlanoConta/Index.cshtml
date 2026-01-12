@@ -1,0 +1,29 @@
+<h1 class="text-2xl font-bold mb-4">Plano de Contas</h1>
+<button type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="Novo()">Criar item de Plano
+    de Contas</button>
+<table class="mt-4 min-w-full bg-white border border-gray-300" >
+    <thead>
+        <tr>
+            <th class="py-2 px-4 border-b border-gray-300 text-left">ID</th>
+            <th class="py-2 px-4 border-b border-gray-300 text-left">Nome</th>
+            <th class="py-2 px-4 border-b border-gray-300 text-left">Tipo</th>
+            <th class="py-2 px-4 border-b border-gray-300 text-left">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in (List<PlanoContaModel>)ViewBag.ListaPlanoContas)
+        {
+            <tr>
+                <td class="py-2 px-4 border-b border-gray-300">@item.Id</td>
+                <td class="py-2 px-4 border-b border-gray-300">@item.Descricao</td>
+                <td class="py-2 px-4 border-b border-gray-300">@item.Tipo</td>
+                <td class="py-2 px-4 border-b border-gray-300">
+                    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded mr-2"
+                        onclick="Atualizar('@item.Id')">Editar</button>
+                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded"
+                        onclick="Excluir('@item.Id')">Excluir</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

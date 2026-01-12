@@ -1,13 +1,14 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - myfinance_web_dotnet</title>
     <link rel="stylesheet" href="~/css/output.css" asp-append-version="true" />
     <style>
-        body { 
-            font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif;
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif;
             font-size: 1rem;
             font-weight: 400;
             line-height: 1.5;
@@ -16,27 +17,36 @@
         }
     </style>
 </head>
+
 <body class="flex flex-col min-h-screen">
     <header>
-        <nav class="relative flex flex-wrap items-center justify-between py-2 bg-white border-b border-[#dee2e6] shadow-[0_0.25rem_0.75rem_rgba(0,0,0,0.05)] mb-3">
+        <nav
+            class="relative flex flex-wrap items-center justify-between py-2 bg-white border-b border-[#dee2e6] shadow-[0_0.25rem_0.75rem_rgba(0,0,0,0.05)] mb-3">
             <div class="w-full px-4 mx-auto flex flex-wrap items-center justify-between">
-                
-                <a class="inline-block py-[0.3125rem] mr-4 text-[1.25rem] whitespace-nowrap text-[#212529] no-underline" 
-                   asp-area="" asp-controller="Home" asp-action="Index">
+
+                <a class="inline-block py-[0.3125rem] mr-4 text-[1.25rem] whitespace-nowrap text-[#212529] no-underline"
+                    asp-area="" asp-controller="Home" asp-action="Index">
                     myfinance_web_dotnet
                 </a>
 
                 <button class="sm:hidden px-3 py-1 border border-[rgba(0,0,0,0.1)] rounded text-[rgba(0,0,0,0.55)]">
-                    <span class="inline-block w-[1.5em] h-[1.5em] align-middle bg-[url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 30 30%27%3e%3cpath stroke=%27rgba(0, 0, 0, 0.55)%27 stroke-linecap=%27round%27 stroke-miterlimit=%2710%27 stroke-width=%272%27 d=%27M4 7h22M4 15h22M4 23h22%27/%3e%3c/svg%3e')] bg-no-repeat bg-center bg-contain"></span>
+                    <span
+                        class="inline-block w-[1.5em] h-[1.5em] align-middle bg-[url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 30 30%27%3e%3cpath stroke=%27rgba(0, 0, 0, 0.55)%27 stroke-linecap=%27round%27 stroke-miterlimit=%2710%27 stroke-width=%272%27 d=%27M4 7h22M4 15h22M4 23h22%27/%3e%3c/svg%3e')] bg-no-repeat bg-center bg-contain"></span>
                 </button>
 
                 <div class="hidden sm:flex flex-grow items-center justify-between">
                     <ul class="flex flex-row list-none pl-0 mb-0">
                         <li class="nav-item">
-                            <a class="block py-2 px-2 text-[#212529] hover:text-[rgba(0,0,0,0.7)] no-underline" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="block py-2 px-2 text-[#212529] hover:text-[rgba(0,0,0,0.7)] no-underline"
+                                asp-area="" asp-controller="PlanoConta" asp-action="Index">Plano de Contas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="block py-2 px-2 text-[#212529] hover:text-[rgba(0,0,0,0.7)] no-underline" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="block py-2 px-2 text-[#212529] hover:text-[rgba(0,0,0,0.7)] no-underline"
+                                asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="block py-2 px-2 text-[#212529] hover:text-[rgba(0,0,0,0.7)] no-underline"
+                                asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
                 </div>
@@ -44,19 +54,23 @@
         </nav>
     </header>
 
-    <div class="w-full px-3 mx-auto sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] xxl:max-w-[1320px]">
+    <div
+        class="flex-grow w-full px-3 mx-auto sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] xxl:max-w-[1320px]">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
     <footer class="border-t border-[#dee2e6] py-4 text-[#6c757d]">
-        <div class="w-full px-3  sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] xxl:max-w-[1320px]">
-            &copy; 2025 - myfinance_web_dotnet - <a class="text-[#0d6efd] no-underline hover:underline" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <div
+            class="w-full px-3  sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] xxl:max-w-[1320px]">
+            &copy; 2025 - myfinance_web_dotnet - <a class="text-[#0d6efd] no-underline hover:underline" asp-area=""
+                asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
 
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+
 </html>
