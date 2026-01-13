@@ -1,0 +1,18 @@
+@model myfinance_web_dotnet.Models.PlanoContaModel
+<h1 class="text-2xl font-bold mb-4">Criar Plano de Contas</h1>
+<div>
+<form asp-controller="PlanoConta" asp-action="Cadastrar" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <label>Descrição:</label><br>
+    <input type="text" asp-for="Descricao" class="border border-gray-300 rounded px-2 py-1 w-full mb-4" /><br>
+
+    <br>
+    <label>Tipo:</label><br>
+    <label>@Html.RadioButtonFor(m => m.Tipo, "R") Receita</label>
+    <label>@Html.RadioButtonFor(m => m.Tipo,"D") Despesa</label> 
+
+    <br><br>
+    <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Salvar</button>
+</form>
+</div>
