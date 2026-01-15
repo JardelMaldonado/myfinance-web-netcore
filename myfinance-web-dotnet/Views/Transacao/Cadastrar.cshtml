@@ -1,18 +1,41 @@
-@model myfinance_web_dotnet.Models.PlanoContaModel
-<h1 class="text-2xl font-bold mb-4">Criar Plano de Contas</h1>
-<div>
-<form asp-controller="PlanoConta" asp-action="Cadastrar" method="post">
-    <input type="hidden" asp-for="Id" />
+@model myfinance_web_dotnet.Models.TransacaoModel
 
-    <label>Descrição:</label><br>
-    <input type="text" asp-for="Descricao" class="border border-gray-300 rounded px-2 py-1 w-full mb-4" /><br>
+<div class="max-w-2xl mx-auto mt-12 p-6 bg-white rounded-lg shadow-md">
+    <h1 class="text-2xl font-bold mb-6 text-gray-800 pb-2">Registrar Transação Financeira</h1>
 
-    <br>
-    <label>Tipo:</label><br>
-    <label>@Html.RadioButtonFor(m => m.Tipo, "R") Receita</label>
-    <label>@Html.RadioButtonFor(m => m.Tipo,"D") Despesa</label> 
+    <form asp-controller="Transacao" asp-action="Cadastrar" method="post" class="space-y-4">
+        <input type="hidden" asp-for="Id" />
 
-    <br><br>
-    <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Salvar</button>
-</form>
+        <div class="mt-4">
+            <label asp-for="Data" class="block text-gray-700 text-sm font-bold mb-2">Data:</label>
+            <input type="date" asp-for="Data" 
+                   class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+        </div>
+
+        <div>
+            <label asp-for="Valor" class="block text-gray-700 text-sm font-bold mb-2">Valor:</label>
+            <input type="number" asp-for="Valor" step="0.01" placeholder="0,00"
+                   class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+        </div>
+
+        <div>
+            <label asp-for="PlanoContaId" class="block text-gray-700 text-sm font-bold mb-2">Plano de Contas:</label>
+            <select asp-for="PlanoContaId" asp-items="@Model.ListaPlanoContas"
+                    class="shadow border rounded w-full py-2 px-3 text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                <option value="">Selecione um plano de contas</option>
+            </select>
+        </div>
+
+        <div>
+            <label asp-for="Historico" class="block text-gray-700 text-sm font-bold mb-2">Histórico:</label>
+            <textarea asp-for="Historico" rows="3"
+                      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
+                      placeholder="Descrição da transação..."></textarea>
+        </div>
+
+        <br><br>
+        <button type="submit"
+            class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Registrar</button>
+
+    </form>
 </div>
