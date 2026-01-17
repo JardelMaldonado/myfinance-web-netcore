@@ -10,12 +10,14 @@
             <label asp-for="Data" class="block text-gray-700 text-sm font-bold mb-2">Data:</label>
             <input type="date" asp-for="Data" 
                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                     <span asp-validation-for="Data" class="text-red-500 text-xs mt-1"></span>
         </div>
 
         <div>
             <label asp-for="Valor" class="block text-gray-700 text-sm font-bold mb-2">Valor:</label>
             <input type="number" asp-for="Valor" step="0.01" placeholder="0,00"
                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                   <span asp-validation-for="Valor" class="text-red-500 text-xs mt-1"></span>
         </div>
 
         <div>
@@ -24,6 +26,7 @@
                     class="shadow border rounded w-full py-2 px-3 text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                 <option value="">Selecione um plano de contas</option>
             </select>
+            <span asp-validation-for="PlanoContaId" class="text-red-500 text-xs mt-1"></span>
         </div>
 
         <div>
@@ -31,6 +34,7 @@
             <textarea asp-for="Historico" rows="3"
                       class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
                       placeholder="Descrição da transação..."></textarea>
+                      <span asp-validation-for="Historico" class="text-red-500 text-xs mt-1"></span>
         </div>
 
         <br><br>

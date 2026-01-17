@@ -80,16 +80,22 @@ namespace myfinance_web_dotnet.Controllers
         [Route("Cadastrar/{Id}")]
         public IActionResult Cadastrar(TransacaoModel model)
         {
+            if (ModelState.IsValid)
+            {
             var transacao = new Transacao()
             {
                 Id = model.Id,
                 Historico = model.Historico,
-                Data = model.Data,
-                Valor = model.Valor,
-                PlanoContaId = model.PlanoContaId
+                Data = (DateTime)model.Data,
+                Valor = (decimal)model.Valor,
+                PlanoContaId = (int)model.PlanoContaId
             };
             _transacaoService.Cadastrar(transacao);
             return RedirectToAction("Index");
+            }
+            var listaPlanos = _planoContaService.ListarRegistros();
+            model.ListaPlanoContas = new SelectList(listaPlanos, "Id", "Descricao");
+            return View(model);
         }
         [HttpGet]
         [Route("Excluir/{Id}")]
