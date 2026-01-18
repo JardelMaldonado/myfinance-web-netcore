@@ -17,7 +17,7 @@ namespace myfinance_web_dotnet.Models
         public decimal? Valor { get; set; }
         [Required(ErrorMessage = "Selecione um plano de contas")]
         public int? PlanoContaId { get; set; }
-        public string Tipo { get; set; }
+        public string? Tipo { get; set; }
         public IEnumerable<SelectListItem>? ListaPlanoContas { get; set; }
     }
 }
