@@ -1,10 +1,9 @@
-﻿namespace myfinance_web_dotnet_domain;
+﻿using myfinance_web_dotnet_domain.Entities.Base;
 
-public class PlanoConta
+namespace myfinance_web_dotnet_domain;
+
+public class PlanoConta : EntityBase
 {
-    public int? Id { get; set; }
-
-    public string Descricao { get; set; }
-
-    public string Tipo { get; set; }
+    public string? Descricao { get; set; }
+    public string? Tipo { get; set; }
 }
