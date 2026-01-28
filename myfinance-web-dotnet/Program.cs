@@ -15,6 +15,8 @@ builder.Services.AddScoped<IPlanoContaService, PlanoContaService>();
 builder.Services.AddScoped<ITransacaoService, TransacaoService>();
 
 builder.Services.AddScoped<IPlanoContaRepository, PlanoContaRepository>();
+builder.Services.AddScoped<ITransacaoRepository, TransacaoRepository>();
+
 
 var app = builder.Build();
 

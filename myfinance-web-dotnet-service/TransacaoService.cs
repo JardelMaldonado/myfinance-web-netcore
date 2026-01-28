@@ -1,53 +1,34 @@
 using System.Security.Cryptography.X509Certificates;
-using myfinance_web_dotnet_domain;       
-using myfinance_web_dotnet_infra;        
+using myfinance_web_dotnet_domain;
+using myfinance_web_dotnet_infra.Interfaces;
 using myfinance_web_dotnet_service.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace myfinance_web_dotnet_service{
+namespace myfinance_web_dotnet_service
+{
     public class TransacaoService : ITransacaoService
     {
 
-        private readonly MyFinanceDbContext _dbContext;
-
-        public TransacaoService(MyFinanceDbContext dbContext)
+        private readonly ITransacaoRepository _transacaoRepository;
+        public TransacaoService(ITransacaoRepository transacaoRepository)
         {
-            _dbContext = dbContext;
+            _transacaoRepository = transacaoRepository;
         }
-
         public void Cadastrar(Transacao Entidade)
         {
-            var dbSet = _dbContext.Transacao;
-
-            if(Entidade.Id == null)
-            {
-                dbSet.Add(Entidade);
-            }
-            else
-            {
-                dbSet.Attach(Entidade);
-                _dbContext.Entry(Entidade).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-            }
-            _dbContext.SaveChanges();
+            _transacaoRepository.Cadastrar(Entidade);
         }
-
         public void Excluir(int Id)
         {
-            var Transacao = new Transacao() { Id = Id };
-            _dbContext.Attach(Transacao);
-            _dbContext.Remove(Transacao);
-            _dbContext.SaveChanges();
+            _transacaoRepository.Excluir(Id);
         }
-
         public List<Transacao> ListarRegistros()
         {
-            var dbSet = _dbContext.Transacao.Include(x => x.PlanoConta);
-            return dbSet.ToList();
+            return _transacaoRepository.ListarRegistros();
         }
-
         public Transacao RetornarRegistro(int Id)
         {
-            return _dbContext.Transacao.Where(x => x.Id == Id).First();
+            return _transacaoRepository.RetornarRegistro(Id);
         }
     }
 }

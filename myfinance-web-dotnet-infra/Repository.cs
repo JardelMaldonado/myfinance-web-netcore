@@ -35,7 +35,7 @@ namespace myfinance_web_dotnet_infra
             Db.SaveChanges();
         }
 
-        public List<TEntity> ListarRegistros()
+        public virtual List<TEntity> ListarRegistros()
         {
             return DbSetContext.ToList();
         }
